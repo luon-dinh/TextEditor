@@ -1,0 +1,6480 @@
+---
+openapi: 3.0.3
+info:
+  title: KatOne API
+  version: 2.0.0
+tags:
+- name: API Keys
+- name: Account Billing Information
+- name: Account Payment Methods
+- name: Account TestCloud Subscriptions
+- name: Account Users
+- name: Accounts
+- name: Auth
+- name: Billing Information
+- name: Configs
+- name: Dashboard
+- name: EnterpriseProducts
+- name: Existing Accounts
+- name: Invoice
+- name: OAuth2
+- name: Organization Feature Flags
+- name: Organization User Features
+- name: Organization User SSOs
+- name: Organization Users
+- name: Organizations
+- name: Patches
+- name: Payment Methods
+- name: Product Interests
+- name: Products
+- name: Projects
+- name: Quote
+- name: Recent Projects
+- name: Recurly Webhook
+- name: Removed Organization User
+- name: Report
+- name: Service Cloud Organization Users
+- name: Studio Subscriptions
+- name: Subscriptions
+- name: Teams
+- name: Test Result Count
+- name: TestCloud Subscriptions
+- name: TestCloud Usage
+- name: TestOps Platform Subscriptions
+- name: TestOps Subscriptions
+- name: Tracking
+- name: User Invitations
+- name: User SSO Invitations
+- name: Users
+- name: Visual Testing Subscriptions
+- name: Visual Testing Usage
+- name: _Deprecated
+paths:
+  /track/v1/aliases:
+    post:
+      tags:
+      - _Deprecated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Alias'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /track/v1/identifies:
+    post:
+      tags:
+      - _Deprecated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Identify'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /track/v1/pages:
+    post:
+      tags:
+      - _Deprecated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Page'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /track/v1/screens:
+    post:
+      tags:
+      - _Deprecated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Screen'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /track/v1/tracks:
+    post:
+      tags:
+      - _Deprecated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Track'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /v1/account-billing-information:
+    get:
+      tags:
+      - Account Billing Information
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseBillingInformation'
+    put:
+      tags:
+      - Account Billing Information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillingInformation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseBillingInformation'
+    patch:
+      tags:
+      - Account Billing Information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillingInformation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseBillingInformation'
+  /v1/account-payment-methods:
+    get:
+      tags:
+      - Account Payment Methods
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponsePaymentMethod'
+    post:
+      tags:
+      - Account Payment Methods
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentMethod'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponsePaymentMethod'
+  /v1/account-payment-methods/{id}:
+    put:
+      tags:
+      - Account Payment Methods
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentMethod'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponsePaymentMethod'
+    delete:
+      tags:
+      - Account Payment Methods
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponsePaymentMethod'
+    patch:
+      tags:
+      - Account Payment Methods
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentMethod'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponsePaymentMethod'
+  /v1/account-testcloud-subscriptions:
+    get:
+      tags:
+      - Account TestCloud Subscriptions
+      parameters:
+      - name: include
+        in: query
+        schema:
+          type: string
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseAccountTestCloudSubscription'
+  /v1/account-users:
+    get:
+      tags:
+      - Account Users
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseAccountUser'
+  /v1/accounts:
+    get:
+      tags:
+      - Accounts
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseAccount'
+    post:
+      tags:
+      - Accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account1'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseAccount'
+  /v1/accounts/{id}:
+    put:
+      tags:
+      - Accounts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account1'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseAccount'
+    delete:
+      tags:
+      - Accounts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseAccount'
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme:
+        - '**'
+    patch:
+      tags:
+      - Accounts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account1'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseAccount'
+  /v1/aliases:
+    post:
+      tags:
+      - Tracking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Alias'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /v1/api-keys:
+    get:
+      tags:
+      - API Keys
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseApiKey'
+    post:
+      tags:
+      - API Keys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKey'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseApiKey'
+  /v1/api-keys/{id}:
+    put:
+      tags:
+      - API Keys
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKey'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseApiKey'
+    delete:
+      tags:
+      - API Keys
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+      - API Keys
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKey'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseApiKey'
+  /v1/auth/discourse-sso:
+    post:
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscourseSsoParam'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseDiscourseSsoParam'
+  /v1/auth/google-login:
+    post:
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponsePayload'
+  /v1/auth/impersonate:
+    post:
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseToken'
+  /v1/auth/login:
+    post:
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseToken'
+  /v1/auth/me:
+    get:
+      tags:
+      - Auth
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUser'
+  /v1/billing-information:
+    get:
+      tags:
+      - Billing Information
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsBillingInformation'
+    put:
+      tags:
+      - Billing Information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsBillingInformation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsBillingInformation'
+    post:
+      tags:
+      - Billing Information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsBillingInformation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsBillingInformation'
+    patch:
+      tags:
+      - Billing Information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsBillingInformation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsBillingInformation'
+  /v1/config:
+    get:
+      tags:
+      - Configs
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseConfig'
+    put:
+      tags:
+      - Configs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Config'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseConfig'
+    patch:
+      tags:
+      - Configs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Config'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseConfig'
+  /v1/dashboard/ks-sessions:
+    get:
+      tags:
+      - Dashboard
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsKsSession'
+  /v1/dashboard/license-usage:
+    get:
+      tags:
+      - Dashboard
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseMetricData'
+  /v1/dashboard/machines:
+    get:
+      tags:
+      - Dashboard
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsMachine'
+  /v1/dashboard/test-activities:
+    get:
+      tags:
+      - Dashboard
+      parameters:
+      - name: organizationId
+        in: query
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseListTotalTestActivity'
+  /v1/enterprise-products:
+    get:
+      tags:
+      - EnterpriseProducts
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsEnterpriseProduct'
+  /v1/existing-accounts:
+    get:
+      tags:
+      - Existing Accounts
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseExistingAccount'
+  /v1/identifies:
+    post:
+      tags:
+      - Tracking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Identify'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /v1/invoices:
+    get:
+      tags:
+      - Invoice
+      parameters:
+      - name: invoice_number
+        in: query
+        schema:
+          type: string
+      - name: organization_id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlyInvoiceDTO'
+  /v1/invoices/pending:
+    get:
+      tags:
+      - Invoice
+      parameters:
+      - name: features
+        in: query
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsOrganizationFeature'
+      - name: organization_id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseRecurlyInvoiceDTO'
+  /v1/invoices/preview:
+    post:
+      tags:
+      - Invoice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlyInvoiceDTO'
+  /v1/oauth/authorize:
+    get:
+      tags:
+      - OAuth2
+      parameters:
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseAuthorizationCode'
+  /v1/oauth/token:
+    post:
+      tags:
+      - OAuth2
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                code:
+                  type: string
+                redirect_uri:
+                  type: string
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth2TokenRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth2TokenResponse'
+  /v1/oauth/userinfo:
+    get:
+      tags:
+      - OAuth2
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth2UserInfoResponse'
+  /v1/org-user-features:
+    get:
+      tags:
+      - Organization User Features
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsOrganizationUserFeature'
+    post:
+      tags:
+      - Organization User Features
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganizationUserFeature'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganizationUserFeature'
+  /v1/org-users:
+    get:
+      tags:
+      - Organization Users
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseOrganizationUser'
+  /v1/org-users/assign/{feature}:
+    get:
+      tags:
+      - Organization Users
+      parameters:
+      - name: feature
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseOrganizationUser'
+  /v1/org-users/{id}:
+    put:
+      tags:
+      - Organization Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganizationUser'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseOrganizationUser'
+    patch:
+      tags:
+      - Organization Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganizationUser'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseOrganizationUser'
+  /v1/org-users/{orgUserId}:
+    delete:
+      tags:
+      - Organization Users
+      parameters:
+      - name: orgUserId
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganizationUser'
+  /v1/organization-removed-users:
+    get:
+      tags:
+      - Removed Organization User
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseOrganizationRemovedUser'
+  /v1/orgs:
+    get:
+      tags:
+      - Organizations
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseOrganization'
+    post:
+      tags:
+      - Organizations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganization'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganization'
+  /v1/orgs/{id}:
+    put:
+      tags:
+      - Organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganization'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganization'
+    patch:
+      tags:
+      - Organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganization'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganization'
+  /v1/pages:
+    post:
+      tags:
+      - Tracking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Page'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /v1/patches/migrate-plans:
+    post:
+      tags:
+      - Patches
+      responses:
+        "200":
+          description: OK
+  /v1/payment-methods:
+    get:
+      tags:
+      - Payment Methods
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsPaymentMethod'
+    post:
+      tags:
+      - Payment Methods
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsPaymentMethod'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsPaymentMethod'
+  /v1/payment-methods/{id}:
+    put:
+      tags:
+      - Payment Methods
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsPaymentMethod'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsPaymentMethod'
+    delete:
+      tags:
+      - Payment Methods
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsPaymentMethod'
+    patch:
+      tags:
+      - Payment Methods
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsPaymentMethod'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsPaymentMethod'
+  /v1/product-interests:
+    get:
+      tags:
+      - Product Interests
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseProductInterest'
+    post:
+      tags:
+      - Product Interests
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInterest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseProductInterest'
+  /v1/product-interests/{id}:
+    delete:
+      tags:
+      - Product Interests
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /v1/products:
+    get:
+      tags:
+      - Products
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseProduct'
+  /v1/projects:
+    get:
+      tags:
+      - Projects
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsProject'
+    post:
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsProject'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsProject'
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme:
+        - '**'
+  /v1/projects/statistics:
+    get:
+      tags:
+      - Projects
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatisticQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseStatisticData'
+  /v1/quotes:
+    post:
+      tags:
+      - Quote
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudProductQuoteInformation'
+  /v1/recent-projects:
+    get:
+      tags:
+      - Recent Projects
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsRecentProject'
+  /v1/report/academy-registrations:
+    get:
+      tags:
+      - Report
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseAcademyRegistration'
+  /v1/report/console-embedded-url:
+    get:
+      tags:
+      - Report
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseEmbeddedUrl'
+  /v1/report/dashboard-embedded-url/{dashboardId}:
+    get:
+      tags:
+      - Report
+      parameters:
+      - name: dashboardId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseEmbeddedUrl'
+  /v1/report/recorder-registrations:
+    get:
+      tags:
+      - Report
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseRecorderRegistration'
+  /v1/report/studio-registrations:
+    get:
+      tags:
+      - Report
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseStudioRegistration'
+  /v1/report/testops-registrations:
+    get:
+      tags:
+      - Report
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsRegistration'
+  /v1/screens:
+    post:
+      tags:
+      - Tracking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Screen'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /v1/service-cloud-organization-users:
+    get:
+      tags:
+      - Service Cloud Organization Users
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseServiceCloudOrganizationUser'
+    post:
+      tags:
+      - Service Cloud Organization Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceCloudOrganizationUser'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseServiceCloudOrganizationUser'
+  /v1/service-cloud-organization-users/active:
+    get:
+      tags:
+      - Service Cloud Organization Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseServiceCloudOrganizationUser'
+  /v1/service-cloud-organization-users/{id}:
+    delete:
+      tags:
+      - Service Cloud Organization Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseServiceCloudOrganizationUser'
+  /v1/studio-subscriptions:
+    get:
+      tags:
+      - Studio Subscriptions
+      parameters:
+      - name: include
+        in: query
+        schema:
+          type: string
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseStudioSubscription'
+  /v1/subscriptions:
+    get:
+      tags:
+      - Subscriptions
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsSubscription'
+  /v1/subscriptions/account/{id}:
+    get:
+      tags:
+      - Subscriptions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseRecurlySubscriptionDTO'
+  /v1/subscriptions/best-plan-testops-platform:
+    get:
+      tags:
+      - Subscriptions
+      parameters:
+      - name: account_id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseBestPlanInformationDTO'
+  /v1/subscriptions/cancel:
+    put:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecurlySubscription'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlySubscription'
+    patch:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecurlySubscription'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlySubscription'
+  /v1/subscriptions/cancel-trial-testops-platform:
+    put:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsPlatformSubscription'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsPlatformSubscription'
+  /v1/subscriptions/checkout-testops-platform:
+    post:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/OrderDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseListRecurlySubscription'
+  /v1/subscriptions/reactivate:
+    put:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecurlySubscription'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlySubscription'
+    patch:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecurlySubscription'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlySubscription'
+  /v1/subscriptions/subscribe:
+    post:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlySubscription'
+  /v1/subscriptions/trial-request:
+    post:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganizationTrialRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganizationTrialRequest'
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme:
+        - '**'
+  /v1/subscriptions/trial-testops-platform:
+    post:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsPlatformSubscription'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsPlatformSubscription'
+  /v1/subscriptions/upgrade:
+    post:
+      tags:
+      - Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseRecurlySubscription'
+  /v1/teams:
+    post:
+      tags:
+      - Teams
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsTeam'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsTeam'
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme:
+        - '**'
+  /v1/test-result-counts:
+    get:
+      tags:
+      - Test Result Count
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestResultCount'
+  /v1/test-result-counts/metrics:
+    get:
+      tags:
+      - Test Result Count
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseMetricData'
+  /v1/testcloud-subscriptions:
+    get:
+      tags:
+      - TestCloud Subscriptions
+      parameters:
+      - name: include
+        in: query
+        schema:
+          type: string
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestCloudSubscription'
+    post:
+      tags:
+      - TestCloud Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestCloudSubscription'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudSubscription'
+  /v1/testcloud-subscriptions/{id}/cancel:
+    put:
+      tags:
+      - TestCloud Subscriptions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudSubscription'
+    patch:
+      tags:
+      - TestCloud Subscriptions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudSubscription'
+  /v1/testcloud-subscriptions/{id}/reactivate:
+    put:
+      tags:
+      - TestCloud Subscriptions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudSubscription'
+    patch:
+      tags:
+      - TestCloud Subscriptions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudSubscription'
+  /v1/testcloud-usage:
+    get:
+      tags:
+      - TestCloud Usage
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestCloudUsage'
+    post:
+      tags:
+      - TestCloud Usage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestCloudSession'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudSession'
+  /v1/testcloud-usage/latest/{organizationId}:
+    get:
+      tags:
+      - TestCloud Usage
+      parameters:
+      - name: organizationId
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestCloudUsage'
+  /v1/testcloud-usage/metrics:
+    get:
+      tags:
+      - TestCloud Usage
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseMetricData'
+  /v1/testops-organization-feature-flags:
+    get:
+      tags:
+      - Organization Feature Flags
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsOrganizationFeatureFlag'
+  /v1/testops-organization-user-ssos:
+    get:
+      tags:
+      - Organization User SSOs
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsOrganizationUserSso'
+    post:
+      tags:
+      - Organization User SSOs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsOrganizationUserSso'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganizationUserSso'
+  /v1/testops-organization-user-ssos/{id}:
+    delete:
+      tags:
+      - Organization User SSOs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsOrganizationUserSso'
+  /v1/testops-platform-subscriptions:
+    get:
+      tags:
+      - TestOps Platform Subscriptions
+      parameters:
+      - name: include
+        in: query
+        schema:
+          type: string
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsPlatformSubscription'
+  /v1/testops-platform-subscriptions/configuration:
+    get:
+      tags:
+      - TestOps Platform Subscriptions
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseTestOpsPlatformConfiguration'
+  /v1/testops-subscriptions:
+    get:
+      tags:
+      - TestOps Subscriptions
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsSubscription1'
+  /v1/testops-user-invitations:
+    get:
+      tags:
+      - User Invitations
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsUserInvitation'
+  /v1/testops-user-invitations/{id}:
+    delete:
+      tags:
+      - User Invitations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserInvitation'
+  /v1/testops-user-sso-invitations:
+    get:
+      tags:
+      - User SSO Invitations
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseTestOpsUserSsoInvitation'
+  /v1/tracks:
+    post:
+      tags:
+      - Tracking
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Track'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackResponse'
+  /v1/user-invitations:
+    get:
+      tags:
+      - User Invitations
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseUserInvitation'
+    post:
+      tags:
+      - User Invitations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvitationRequestDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserInvitation'
+  /v1/user-invitations/{id}:
+    put:
+      tags:
+      - User Invitations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInvitation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserInvitation'
+    delete:
+      tags:
+      - User Invitations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserInvitation'
+    patch:
+      tags:
+      - User Invitations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInvitation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserInvitation'
+  /v1/user-sso-invitations:
+    get:
+      tags:
+      - User SSO Invitations
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseUserSsoInvitation'
+  /v1/user-sso-invitations/{id}:
+    put:
+      tags:
+      - User SSO Invitations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSsoInvitation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserSsoInvitation'
+    delete:
+      tags:
+      - User SSO Invitations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserSsoInvitation'
+    patch:
+      tags:
+      - User SSO Invitations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSsoInvitation'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUserSsoInvitation'
+  /v1/users:
+    get:
+      tags:
+      - Users
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseUser'
+    post:
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserParam'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseObject'
+  /v1/users/forgot-password:
+    post:
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+  /v1/users/reset-password:
+    post:
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+  /v1/users/{id}:
+    put:
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUser'
+    delete:
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseUser'
+  /v1/visual-testing-subscriptions:
+    get:
+      tags:
+      - Visual Testing Subscriptions
+      parameters:
+      - name: include
+        in: query
+        schema:
+          type: string
+      - name: query
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseQuery'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageableResponseVisualTestingSubscription'
+  /v1/visual-testing-subscriptions/trial-request:
+    post:
+      tags:
+      - Visual Testing Subscriptions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              format: int64
+              type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseVisualTestingSubscription'
+  /v1/visual-testing-usage:
+    post:
+      tags:
+      - Visual Testing Usage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VisualTestingTracking'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseVisualTestingUsage'
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme:
+        - '**'
+  /v1/visual-testing-usage/latest/{organizationId}:
+    get:
+      tags:
+      - Visual Testing Usage
+      parameters:
+      - name: organizationId
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseVisualTestingUsage'
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme:
+        - '**'
+  /v1/webhook/recurly:
+    post:
+      tags:
+      - Recurly Webhook
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: string
+      responses:
+        "201":
+          description: Created
+  /webhook/hubspot/update/member:
+    post:
+      tags:
+      - Hubspot Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsAccount'
+      responses:
+        "200":
+          description: OK
+  /webhook/mailchimp/create/member:
+    post:
+      tags:
+      - Mail Chimp Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsAccount'
+      responses:
+        "200":
+          description: OK
+  /webhook/mailchimp/message/send:
+    post:
+      tags:
+      - Mail Chimp Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageRequest'
+      responses:
+        "200":
+          description: OK
+  /webhook/mailchimp/message/send-template:
+    post:
+      tags:
+      - Mail Chimp Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageTemplateRequest'
+      responses:
+        "200":
+          description: OK
+  /webhook/mailchimp/update/member:
+    post:
+      tags:
+      - Mail Chimp Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsAccount'
+      responses:
+        "200":
+          description: OK
+  /webhook/recurly/create-account:
+    post:
+      tags:
+      - Recurly Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewAccountNotification'
+      responses:
+        "200":
+          description: OK
+  /webhook/recurly/invoice/paid:
+    post:
+      tags:
+      - Recurly Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaidChargeInvoiceNotification'
+      responses:
+        "200":
+          description: OK
+  /webhook/recurly/payment:
+    post:
+      tags:
+      - Recurly Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SuccessfulPaymentNotification'
+      responses:
+        "200":
+          description: OK
+  /webhook/testops/subscribe-license:
+    post:
+      tags:
+      - Test Ops Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestOpsAccount'
+      responses:
+        "200":
+          description: OK
+  /webhook/website/contact:
+    post:
+      tags:
+      - Website Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRequest'
+      responses:
+        "200":
+          description: OK
+  /{var}version:
+    get:
+      tags:
+      - Version Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    AcademyRegistration:
+      type: object
+      properties:
+        user:
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+        year:
+          type: string
+        month:
+          type: string
+        day:
+          format: int32
+          type: integer
+    Account:
+      type: object
+      properties:
+        accountCode:
+          type: string
+          xml:
+            name: account_code
+        userName:
+          type: string
+          xml:
+            name: username
+        email:
+          type: string
+        firstName:
+          type: string
+          xml:
+            name: first_name
+        lastName:
+          type: string
+          xml:
+            name: last_name
+        company:
+          type: string
+          xml:
+            name: company_name
+        phone:
+          type: string
+      xml:
+        name: account
+    Account1:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        domain:
+          type: string
+        name:
+          type: string
+        ownerId:
+          format: int64
+          type: integer
+        ownerEmail:
+          type: string
+    AccountRole:
+      enum:
+      - ADMIN
+      - BILLING_MANAGER
+      - MEMBER
+      - OWNER
+      type: string
+    AccountTestCloudSubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        expiredAt:
+          format: date
+          type: string
+        archived:
+          type: boolean
+        recurlySubscription:
+          $ref: '#/components/schemas/RecurlySubscription'
+        status:
+          $ref: '#/components/schemas/TestOpsSubscriptionStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        tier:
+          format: int64
+          type: integer
+        credits:
+          format: int64
+          type: integer
+        concurrentSessions:
+          format: int64
+          type: integer
+        billingInterval:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+        accountId:
+          format: int64
+          type: integer
+        hasPremierSuccessAddOn:
+          type: boolean
+    AccountUser:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        userId:
+          format: int64
+          type: integer
+        accountId:
+          format: int64
+          type: integer
+        account:
+          $ref: '#/components/schemas/Account1'
+        role:
+          $ref: '#/components/schemas/AccountRole'
+    Address:
+      type: object
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+      xml:
+        name: address
+    Alias:
+      type: object
+      properties:
+        userId:
+          type: string
+        previousId:
+          type: string
+        context:
+          type: object
+          additionalProperties:
+            type: object
+        anonymousId:
+          type: string
+    ApiKey:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        userId:
+          format: int64
+          type: integer
+        name:
+          pattern: \S
+          type: string
+          nullable: false
+        apiKey:
+          $ref: '#/components/schemas/UUID'
+        lastUsed:
+          format: int64
+          type: integer
+        user:
+          $ref: '#/components/schemas/User'
+    Attachment:
+      type: object
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        content:
+          type: string
+    AuthorizationCode:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        code:
+          $ref: '#/components/schemas/UUID'
+        userId:
+          format: int64
+          type: integer
+        expiredAt:
+          format: date
+          type: string
+        clientId:
+          format: int64
+          type: integer
+    BaseQuery:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        sorts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sort'
+        fetches:
+          type: array
+          items:
+            type: string
+        offset:
+          format: int32
+          type: integer
+        limit:
+          format: int32
+          type: integer
+    BaseUser:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: date
+          type: string
+        updatedAt:
+          format: date
+          type: string
+        archived:
+          type: boolean
+        email:
+          type: string
+        roles:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        firstName:
+          type: string
+        lastName:
+          type: string
+    BestPlanInformationDTO:
+      type: object
+      properties:
+        quotaPreviousPackage:
+          format: int64
+          type: integer
+        isPaidTO:
+          type: boolean
+        interval:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+        bestPlan:
+          $ref: '#/components/schemas/TestOpsPlatformTier'
+        paidTO:
+          type: boolean
+    BillingInformation:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+        ccEmail:
+          type: string
+        fullBusinessName:
+          type: string
+        vatNumber:
+          type: string
+        accountId:
+          format: int64
+          type: integer
+    Config:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        onpremise:
+          type: boolean
+        publicUrl:
+          type: string
+        whitelistedDomain:
+          type: string
+        maintenanceStart:
+          format: date
+          type: string
+        forumSecret:
+          type: string
+        mandrillApiKey:
+          type: string
+        mandrillSubAccount:
+          type: string
+        salesforceClientId:
+          type: string
+        salesforceClientSecret:
+          type: string
+        salesforceUserName:
+          type: string
+        salesforcePassword:
+          type: string
+        serviceCloudClientId:
+          type: string
+        serviceCloudClientSecret:
+          type: string
+        serviceCloudUserName:
+          type: string
+        serviceCloudPassword:
+          type: string
+        recurlyApiKey:
+          type: string
+        stripeApiKey:
+          type: string
+        recurlyUsername:
+          type: string
+        recurlyPassword:
+          type: string
+        segmentWriteKey:
+          type: string
+        subscriptionExpirationExtensionHours:
+          format: int32
+          type: integer
+        invitationExpirationExtensionMilliseconds:
+          format: int64
+          type: integer
+        testCloudFreeTrialTimeEnd:
+          format: int64
+          type: integer
+        testCloudFreeTrialTimeStart:
+          format: int64
+          type: integer
+        testOpsPublicUrl:
+          type: string
+        serviceCloudEnabled:
+          type: boolean
+        endTimeOfFreePeriod:
+          format: int64
+          type: integer
+        startTimeOfFreePeriod:
+          format: int64
+          type: integer
+        defaultQuotaOfTestOpsFree:
+          format: int64
+          type: integer
+    ContactRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        jobTitle:
+          type: string
+        testingSolutions:
+          type: string
+    CreateUserParam:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          pattern: \S
+          type: string
+          nullable: false
+        password:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        roles:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    DataResponseAccount:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Account1'
+    DataResponseApiKey:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ApiKey'
+    DataResponseAuthorizationCode:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AuthorizationCode'
+    DataResponseBestPlanInformationDTO:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/BestPlanInformationDTO'
+    DataResponseBillingInformation:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/BillingInformation'
+    DataResponseConfig:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Config'
+    DataResponseDiscourseSsoParam:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/DiscourseSsoParam'
+    DataResponseEmbeddedUrl:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/EmbeddedUrl'
+    DataResponseListRecurlySubscription:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurlySubscription'
+    DataResponseListTotalTestActivity:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TotalTestActivity'
+    DataResponseObject:
+      type: object
+      properties:
+        data:
+          type: object
+    DataResponseOrganizationUser:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/OrganizationUser'
+    DataResponsePayload:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Payload'
+    DataResponsePaymentMethod:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/PaymentMethod'
+    DataResponseProductInterest:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ProductInterest'
+    DataResponseRecurlyInvoiceDTO:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/RecurlyInvoiceDTO'
+    DataResponseRecurlySubscription:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/RecurlySubscription'
+    DataResponseServiceCloudOrganizationUser:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ServiceCloudOrganizationUser'
+    DataResponseTestCloudProductQuoteInformation:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestCloudProductQuoteInformation'
+    DataResponseTestCloudSession:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestCloudSession'
+    DataResponseTestCloudSubscription:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestCloudSubscription'
+    DataResponseTestCloudUsage:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestCloudUsage'
+    DataResponseTestOpsBillingInformation:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsBillingInformation'
+    DataResponseTestOpsOrganization:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsOrganization'
+    DataResponseTestOpsOrganizationTrialRequest:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsOrganizationTrialRequest'
+    DataResponseTestOpsOrganizationUser:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsOrganizationUser'
+    DataResponseTestOpsOrganizationUserFeature:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsOrganizationUserFeature'
+    DataResponseTestOpsOrganizationUserSso:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsOrganizationUserSso'
+    DataResponseTestOpsPaymentMethod:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsPaymentMethod'
+    DataResponseTestOpsPlatformConfiguration:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsPlatformConfiguration'
+    DataResponseTestOpsPlatformSubscription:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsPlatformSubscription'
+    DataResponseTestOpsProject:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsProject'
+    DataResponseTestOpsTeam:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TestOpsTeam'
+    DataResponseToken:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Token'
+    DataResponseUser:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
+    DataResponseUserInvitation:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/UserInvitation'
+    DataResponseUserSsoInvitation:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/UserSsoInvitation'
+    DataResponseVisualTestingSubscription:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/VisualTestingSubscription'
+    DataResponseVisualTestingUsage:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/VisualTestingUsage'
+    DiscourseSsoParam:
+      type: object
+      properties:
+        returnSsoUrl:
+          type: string
+        sso:
+          type: string
+        sig:
+          type: string
+    EmbeddedUrl:
+      type: object
+      properties:
+        url:
+          type: string
+    ExistingAccount:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        accountId:
+          format: int64
+          type: integer
+        quota:
+          format: int64
+          type: integer
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+    Filter:
+      type: object
+      properties:
+        field:
+          type: string
+        operator:
+          $ref: '#/components/schemas/Operator'
+        value:
+          type: object
+    GlobalMergeVariable:
+      type: object
+      properties:
+        name:
+          type: string
+        content:
+          type: string
+    Header:
+      type: object
+      properties:
+        Reply-To:
+          type: string
+    Identify:
+      type: object
+      properties:
+        userId:
+          type: string
+        traits:
+          type: object
+          additionalProperties:
+            type: object
+        context:
+          type: object
+          additionalProperties:
+            type: object
+        anonymousId:
+          type: string
+    IntervalUnit:
+      enum:
+      - DAYS
+      - HALF_DAYS
+      - HOURS
+      - MILLIS
+      - MINUTES
+      - MONTHS
+      - SECONDS
+      - WEEKS
+      - YEARS
+      type: string
+    InvitationRequestDTO:
+      required:
+      - invitedUserEmail
+      type: object
+      properties:
+        organizationId:
+          format: int64
+          type: integer
+        invitedUserEmail:
+          pattern: \S
+          type: string
+          nullable: false
+        ssoOptions:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsSsoOption'
+        assignedFeatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsOrganizationFeature'
+    Invoice:
+      type: object
+      properties:
+        uuid:
+          type: string
+        state:
+          type: string
+        origin:
+          type: string
+        invoiceNumberPrefix:
+          type: string
+          xml:
+            name: invoice_number_prefix
+        invoiceNumber:
+          format: int32
+          type: integer
+          xml:
+            name: invoice_number
+        address:
+          $ref: '#/components/schemas/Address'
+        vatNumber:
+          format: int32
+          type: integer
+          xml:
+            name: vat_number
+        currency:
+          type: string
+        balanceInCents:
+          format: int32
+          type: integer
+          xml:
+            name: balance_in_cents
+        totalInCents:
+          format: int32
+          type: integer
+          xml:
+            name: total_in_cents
+        taxInCents:
+          format: int32
+          type: integer
+          xml:
+            name: tax_in_cents
+        subtotalInCents:
+          format: int32
+          type: integer
+          xml:
+            name: subtotal_in_cents
+        subtotalBeforeDiscountInCents:
+          format: int32
+          type: integer
+          xml:
+            name: subtotal_before_discount_in_cents
+        discountInCents:
+          format: int32
+          type: integer
+          xml:
+            name: discount_in_cents
+        subscriptionIds:
+          type: array
+          items:
+            type: string
+          xml:
+            name: subscription_ids
+        subscriptionId:
+          type: string
+          xml:
+            name: subscription_id
+        date:
+          format: date
+          type: string
+        customerNotes:
+          type: string
+          xml:
+            name: customer_notes
+        createdAt:
+          format: date
+          type: string
+          xml:
+            name: created_at
+        updatedAt:
+          format: date
+          type: string
+          xml:
+            name: updated_at
+        closedAt:
+          format: date
+          type: string
+          xml:
+            name: closed_at
+        poNumber:
+          format: int32
+          type: integer
+          xml:
+            name: po_number
+        termsAndConditions:
+          type: string
+          xml:
+            name: terms_and_conditions
+        dueOn:
+          format: date
+          type: string
+          xml:
+            name: due_on
+        netTerms:
+          format: int32
+          type: integer
+          xml:
+            name: net_terms
+        collectionMethod:
+          type: string
+          xml:
+            name: collection_method
+      xml:
+        name: invoice
+    MergeVariable:
+      type: object
+      properties:
+        rcpt:
+          type: string
+        vars:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlobalMergeVariable'
+    Message:
+      type: object
+      properties:
+        html:
+          type: string
+        text:
+          type: string
+        subject:
+          type: string
+        from_email:
+          type: string
+        from_name:
+          type: string
+        to:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReceiverHeader'
+        headers:
+          $ref: '#/components/schemas/Header'
+        important:
+          type: boolean
+        track_opens:
+          type: boolean
+        track_clicks:
+          type: boolean
+        auto_text:
+          type: boolean
+        auto_html:
+          type: boolean
+        inline_css:
+          type: boolean
+        url_strip_qs:
+          type: boolean
+        preserve_recipients:
+          type: boolean
+        view_content_link:
+          type: boolean
+        bcc_address:
+          type: string
+        tracking_domain:
+          type: string
+        signing_domain:
+          type: string
+        return_path_domain:
+          type: string
+        merge:
+          type: boolean
+        merge_language:
+          type: string
+        global_merge_vars:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlobalMergeVariable'
+        merge_vars:
+          type: array
+          items:
+            $ref: '#/components/schemas/MergeVariable'
+        tags:
+          type: array
+          items:
+            type: string
+        subaccount:
+          type: string
+        google_analytics_domains:
+          type: array
+          items:
+            type: string
+        google_analytics_campaign:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/MetaData'
+        recipient_metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecipientMetaData'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+    MessageRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        message:
+          $ref: '#/components/schemas/Message'
+        async:
+          type: boolean
+        ip_pool:
+          type: string
+        send_at:
+          type: string
+    MessageTemplateRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        template_name:
+          type: string
+        template_content:
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateContent'
+        message:
+          $ref: '#/components/schemas/Message'
+        async:
+          type: boolean
+        ip_pool:
+          type: string
+        send_at:
+          type: string
+    MetaData:
+      type: object
+      properties:
+        website:
+          type: string
+    MetricData:
+      type: object
+      properties:
+        startTime:
+          format: date
+          type: string
+        endTime:
+          format: date
+          type: string
+        value:
+          type: object
+    MetricGroupBy:
+      type: object
+      properties:
+        field:
+          type: string
+        startTime:
+          format: date
+          type: string
+        endTime:
+          format: date
+          type: string
+        interval:
+          format: int32
+          type: integer
+        unit:
+          $ref: '#/components/schemas/IntervalUnit'
+        timezone:
+          type: string
+    MetricQuery:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        sorts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sort'
+        fetches:
+          type: array
+          items:
+            type: string
+        offset:
+          format: int32
+          type: integer
+        limit:
+          format: int32
+          type: integer
+        select:
+          $ref: '#/components/schemas/MetricSelect'
+        groupBy:
+          $ref: '#/components/schemas/MetricGroupBy'
+    MetricSelect:
+      type: object
+      properties:
+        field:
+          type: string
+        statistic:
+          $ref: '#/components/schemas/Statistic'
+    NewAccountNotification:
+      type: object
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+      xml:
+        name: new_account_notification
+    OAuth2TokenRequest:
+      type: object
+      properties:
+        grantType:
+          type: string
+        code:
+          type: string
+        redirectUri:
+          type: string
+    OAuth2TokenResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        tokenType:
+          type: string
+        idToken:
+          type: string
+    OAuth2UserInfoResponse:
+      type: object
+      properties:
+        sub:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+    Operator:
+      enum:
+      - EQ
+      - GE
+      - GT
+      - IN
+      - LE
+      - LT
+      - NE
+      - NI
+      - SEARCH
+      type: string
+    OrderDTO:
+      type: object
+      properties:
+        organizationId:
+          format: int64
+          type: integer
+        accountId:
+          format: int64
+          type: integer
+        planId:
+          type: string
+        number:
+          format: int64
+          type: integer
+        subscriptionId:
+          format: int64
+          type: integer
+        recurlySubscriptionUuid:
+          type: string
+        discountCode:
+          type: string
+    Organization:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        name:
+          pattern: \S
+          type: string
+          nullable: false
+        logo:
+          type: string
+        restrictedIps:
+          type: string
+        idleTimeout:
+          format: int32
+          minimum: 1
+          type: integer
+        samlSsoEnabled:
+          type: boolean
+        domain:
+          type: string
+        ownerId:
+          format: int64
+          type: integer
+        accountId:
+          format: int64
+          type: integer
+    OrganizationRemovedUser:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        removedAt:
+          format: date
+          type: string
+        joinDate:
+          format: date
+          type: string
+        removedByEmail:
+          type: string
+        removedBy:
+          format: int64
+          type: integer
+        avatar:
+          type: string
+        updatedAt:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        lastAccessedAt:
+          format: date
+          type: string
+        hasSsoEnabled:
+          type: boolean
+        role:
+          $ref: '#/components/schemas/OrganizationRole'
+        archived:
+          type: boolean
+    OrganizationRole:
+      enum:
+      - ADMIN
+      - BILLING_MANAGER
+      - MEMBER
+      - OWNER
+      type: string
+    OrganizationUser:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        accepted:
+          type: boolean
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        userId:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        lastAccessedAt:
+          format: date
+          type: string
+        role:
+          $ref: '#/components/schemas/OrganizationRole'
+        user:
+          $ref: '#/components/schemas/BaseUser'
+        organization:
+          $ref: '#/components/schemas/Organization'
+    Page:
+      type: object
+      properties:
+        userId:
+          type: string
+        name:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        context:
+          type: object
+          additionalProperties:
+            type: object
+        anonymousId:
+          type: string
+    PageableResponseAcademyRegistration:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcademyRegistration'
+        total:
+          format: int64
+          type: integer
+    PageableResponseAccount:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account1'
+        total:
+          format: int64
+          type: integer
+    PageableResponseAccountTestCloudSubscription:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTestCloudSubscription'
+        total:
+          format: int64
+          type: integer
+    PageableResponseAccountUser:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountUser'
+        total:
+          format: int64
+          type: integer
+    PageableResponseApiKey:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiKey'
+        total:
+          format: int64
+          type: integer
+    PageableResponseBillingInformation:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillingInformation'
+        total:
+          format: int64
+          type: integer
+    PageableResponseExistingAccount:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExistingAccount'
+        total:
+          format: int64
+          type: integer
+    PageableResponseMetricData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricData'
+        total:
+          format: int64
+          type: integer
+    PageableResponseOrganization:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+        total:
+          format: int64
+          type: integer
+    PageableResponseOrganizationRemovedUser:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationRemovedUser'
+        total:
+          format: int64
+          type: integer
+    PageableResponseOrganizationUser:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationUser'
+        total:
+          format: int64
+          type: integer
+    PageableResponsePaymentMethod:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentMethod'
+        total:
+          format: int64
+          type: integer
+    PageableResponseProduct:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        total:
+          format: int64
+          type: integer
+    PageableResponseProductInterest:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductInterest'
+        total:
+          format: int64
+          type: integer
+    PageableResponseRecorderRegistration:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecorderRegistration'
+        total:
+          format: int64
+          type: integer
+    PageableResponseRecurlyInvoiceDTO:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurlyInvoiceDTO'
+        total:
+          format: int64
+          type: integer
+    PageableResponseRecurlySubscriptionDTO:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurlySubscriptionDTO'
+        total:
+          format: int64
+          type: integer
+    PageableResponseServiceCloudOrganizationUser:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCloudOrganizationUser'
+        total:
+          format: int64
+          type: integer
+    PageableResponseStatisticData:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatisticData'
+        total:
+          format: int64
+          type: integer
+    PageableResponseStudioRegistration:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudioRegistration'
+        total:
+          format: int64
+          type: integer
+    PageableResponseStudioSubscription:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudioSubscription'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestCloudSubscription:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestCloudSubscription'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestCloudUsage:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestCloudUsage'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsBillingInformation:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsBillingInformation'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsEnterpriseProduct:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsEnterpriseProduct'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsKsSession:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsKsSession'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsMachine:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsMachine'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsOrganizationFeatureFlag:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsOrganizationFeatureFlag'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsOrganizationUserFeature:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsOrganizationUserFeature'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsOrganizationUserSso:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsOrganizationUserSso'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsPaymentMethod:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsPaymentMethod'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsPlatformSubscription:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsPlatformSubscription'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsProject:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsProject'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsRecentProject:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsRecentProject'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsRegistration:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsRegistration'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsSubscription:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsSubscription'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsSubscription1:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsSubscription1'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsUserInvitation:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsUserInvitation'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestOpsUserSsoInvitation:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsUserSsoInvitation'
+        total:
+          format: int64
+          type: integer
+    PageableResponseTestResultCount:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestResultCount'
+        total:
+          format: int64
+          type: integer
+    PageableResponseUser:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        total:
+          format: int64
+          type: integer
+    PageableResponseUserInvitation:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserInvitation'
+        total:
+          format: int64
+          type: integer
+    PageableResponseUserSsoInvitation:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSsoInvitation'
+        total:
+          format: int64
+          type: integer
+    PageableResponseVisualTestingSubscription:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/VisualTestingSubscription'
+        total:
+          format: int64
+          type: integer
+    PaidChargeInvoiceNotification:
+      type: object
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        invoice:
+          $ref: '#/components/schemas/Invoice'
+      xml:
+        name: paid_charge_invoice_notification
+    PaymentMethod:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        accountId:
+          format: int64
+          type: integer
+        brand:
+          type: string
+        expiration:
+          type: string
+        last4:
+          type: string
+        paymentMethodId:
+          type: string
+        stripeToken:
+          type: string
+    Product:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        name:
+          pattern: \S
+          type: string
+          nullable: false
+        price:
+          format: double
+          type: number
+        interval:
+          $ref: '#/components/schemas/ProductInterval'
+        recurlyPlanCode:
+          type: string
+    ProductInterest:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        userId:
+          format: int64
+          type: integer
+        productName:
+          $ref: '#/components/schemas/ProductName'
+        user:
+          $ref: '#/components/schemas/User'
+    ProductInterval:
+      enum:
+      - ANNUAL
+      - MONTHLY
+      type: string
+    ProductName:
+      enum:
+      - KATALIUM
+      - RECORDER
+      - RUNTIME_ENGINE
+      - STUDIO
+      - STUDIO_ENTERPRISE
+      - TESTOPS
+      type: string
+    ReceiverHeader:
+      type: object
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+    RecipientMetaData:
+      type: object
+      properties:
+        rcpt:
+          type: string
+        values:
+          $ref: '#/components/schemas/RecipientMetaDataValue'
+    RecipientMetaDataValue:
+      type: object
+      properties:
+        user_id:
+          format: int32
+          type: integer
+    RecorderRegistration:
+      type: object
+      properties:
+        user:
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+        year:
+          type: string
+        month:
+          type: string
+        day:
+          format: int32
+          type: integer
+    RecurlyInvoiceDTO:
+      type: object
+      properties:
+        invoiceNumber:
+          type: string
+        productId:
+          type: string
+        planId:
+          type: string
+        subscriptionId:
+          type: string
+        total:
+          type: number
+        tax:
+          type: number
+        subTotal:
+          type: number
+        discountAmount:
+          type: number
+        startDate:
+          format: date
+          type: string
+        endDate:
+          format: date
+          type: string
+        errorMessage:
+          type: string
+        nameProduct:
+          type: string
+        organizationId:
+          format: int64
+          type: integer
+        plan:
+          $ref: '#/components/schemas/TestOpsEnterprisePlan'
+        state:
+          $ref: '#/components/schemas/RecurlyInvoicePayloadState'
+        quantity:
+          format: int32
+          type: integer
+    RecurlyInvoicePayloadState:
+      enum:
+      - FAILED
+      - PAID
+      - PAST_DUE
+      - PENDING
+      - PROCESSING
+      type: string
+    RecurlySubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        recurlySubscriptionId:
+          type: string
+        recurlySubscriptionUuid:
+          type: string
+        unpaid:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/RecurlySubscriptionPayloadStatus'
+        stripeCustomerId:
+          format: int64
+          type: integer
+        testOpsStripeCustomerId:
+          format: int64
+          type: integer
+        enterprisePlanId:
+          format: int64
+          type: integer
+        recurlyInvoiceNumber:
+          type: string
+        nextBillingDate:
+          format: date
+          type: string
+        canceledAt:
+          format: date
+          type: string
+    RecurlySubscriptionDTO:
+      type: object
+      properties:
+        accountId:
+          format: int64
+          type: integer
+        subscriptionId:
+          type: string
+        startDate:
+          format: date
+          type: string
+        endDate:
+          format: date
+          type: string
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        quantity:
+          format: int32
+          type: integer
+    RecurlySubscriptionPayloadStatus:
+      enum:
+      - ACTIVE
+      - CANCELED
+      - EXPIRED
+      - FAILED
+      - FUTURE
+      - PAUSED
+      - UNDEFINED
+      type: string
+    Screen:
+      type: object
+      properties:
+        userId:
+          type: string
+        name:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        context:
+          type: object
+          additionalProperties:
+            type: object
+        anonymousId:
+          type: string
+    ServiceCloudOrganizationUser:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        organizationId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        testOpsUserId:
+          format: int64
+          type: integer
+        email:
+          type: string
+    Sort:
+      type: object
+      properties:
+        field:
+          type: string
+        desc:
+          type: boolean
+    Statistic:
+      enum:
+      - AVG
+      - COUNT
+      - GREATEST
+      - LEAST
+      - MAX
+      - MIN
+      - SUM
+      type: string
+    StatisticData:
+      type: object
+      properties:
+        group:
+          $ref: '#/components/schemas/StatisticGroup'
+        value:
+          type: object
+    StatisticGroup:
+      type: object
+      properties:
+        group:
+          type: string
+        value:
+          type: object
+    StatisticQuery:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        sorts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sort'
+        fetches:
+          type: array
+          items:
+            type: string
+        offset:
+          format: int32
+          type: integer
+        limit:
+          format: int32
+          type: integer
+        select:
+          $ref: '#/components/schemas/StatisticSelect'
+        groupBy:
+          $ref: '#/components/schemas/StatisticGroup'
+    StatisticSelect:
+      type: object
+      properties:
+        field:
+          type: string
+        statistic:
+          $ref: '#/components/schemas/Statistic'
+    StudioRegistration:
+      type: object
+      properties:
+        user:
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+        year:
+          type: string
+        month:
+          type: string
+        day:
+          format: int32
+          type: integer
+    StudioSubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        quota:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsSubscriptionStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        expiryDate:
+          format: date
+          type: string
+        source:
+          $ref: '#/components/schemas/TestOpsSubscriptionSource'
+        recurlySubscription:
+          $ref: '#/components/schemas/RecurlySubscription'
+        accountId:
+          format: int64
+          type: integer
+        hasPremierSuccessAddOn:
+          type: boolean
+        billingCycle:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+    SubscriptionSource:
+      enum:
+      - RECURLY
+      - TRIAL
+      type: string
+    SuccessfulPaymentNotification:
+      type: object
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+        transaction:
+          $ref: '#/components/schemas/Transaction'
+      xml:
+        name: successful_payment_notification
+    TemplateContent:
+      type: object
+      properties:
+        name:
+          type: string
+        content:
+          type: string
+    TestCloudProductQuoteInformation:
+      type: object
+      properties:
+        quantity:
+          format: int64
+          type: integer
+        price:
+          type: string
+        subtotal:
+          type: string
+        discountAmount:
+          type: string
+        total:
+          type: string
+        productName:
+          type: string
+        productId:
+          type: string
+        tax:
+          type: string
+        checkoutUrl:
+          type: string
+        fullName:
+          type: string
+        businessName:
+          type: string
+        mail:
+          type: string
+        address1:
+          type: string
+        city:
+          type: string
+        creationDate:
+          type: string
+        unitPrice:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+    TestCloudSession:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        uuid:
+          $ref: '#/components/schemas/UUID'
+        organizationId:
+          format: int64
+          type: integer
+        startTime:
+          format: date
+          type: string
+        endTime:
+          format: date
+          type: string
+        os:
+          type: string
+        browser:
+          type: string
+        browserVersion:
+          type: string
+        tenant:
+          type: string
+        channel:
+          type: string
+    TestCloudSubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        expiredAt:
+          format: date
+          type: string
+        cancelledAt:
+          format: date
+          type: string
+        archived:
+          type: boolean
+        recurlySubscription:
+          $ref: '#/components/schemas/RecurlySubscription'
+        organizationId:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsSubscriptionStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        tier:
+          format: int64
+          type: integer
+        credits:
+          format: int64
+          type: integer
+        concurrentSessions:
+          format: int64
+          type: integer
+        billingInterval:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+        accountId:
+          format: int64
+          type: integer
+        startedAt:
+          format: date
+          type: string
+        isTestCloudFreeTrial:
+          type: boolean
+        hasPremierSuccessAddOn:
+          type: boolean
+        testCloudFreeTrial:
+          type: boolean
+    TestCloudUsage:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        persisted:
+          type: boolean
+        timestamp:
+          format: date
+          type: string
+        organizationId:
+          format: int64
+          type: integer
+        concurrentSessions:
+          format: int64
+          type: integer
+        creditBalance:
+          format: int64
+          type: integer
+        carryOverCredits:
+          format: int64
+          type: integer
+        maxConcurrentSessions:
+          format: int64
+          type: integer
+        standardCredits:
+          format: int64
+          type: integer
+        subscriptionId:
+          format: int64
+          type: integer
+        subscriptionStartedAt:
+          format: date
+          type: string
+        subscriptionExpiredAt:
+          format: date
+          type: string
+        unlimitedCredits:
+          type: boolean
+        sessionId:
+          format: int64
+          type: integer
+        eventType:
+          $ref: '#/components/schemas/TestCloudUsageEventType'
+        usedStandardCredits:
+          format: int64
+          type: integer
+        usedCarryOverCredits:
+          format: int64
+          type: integer
+    TestCloudUsageEventType:
+      enum:
+      - SESSION_ENDED
+      - SESSION_STARTED
+      - SUBSCRIPTION_ACTIVATED
+      - SUBSCRIPTION_TERMINATED
+      - SUBSCRIPTION_UPGRADED
+      type: string
+    TestOpsAccount:
+      type: object
+      properties:
+        email:
+          type: string
+        org_id:
+          type: string
+        org_name:
+          type: string
+        type_license:
+          type: string
+        type_action:
+          type: string
+    TestOpsBillingInformation:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        organization:
+          $ref: '#/components/schemas/TestOpsOrganization'
+        organizationId:
+          format: int64
+          type: integer
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+        vatNumber:
+          type: string
+        fullBusinessName:
+          type: string
+        ccEmails:
+          type: string
+    TestOpsEnterprisePlan:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        planId:
+          type: string
+        name:
+          type: string
+        interval:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+        active:
+          type: boolean
+        price:
+          format: float
+          type: number
+        enterpriseProductId:
+          format: int64
+          type: integer
+        enterpriseProduct:
+          $ref: '#/components/schemas/TestOpsEnterpriseProduct'
+    TestOpsEnterpriseProduct:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        productId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        active:
+          type: boolean
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        type:
+          $ref: '#/components/schemas/TestOpsEnterpriseProductType'
+    TestOpsEnterpriseProductType:
+      enum:
+      - KATALON_STUDIO
+      - TESTCLOUD
+      - TESTOPS
+      - TESTOPS_PLATFORM
+      - VISUAL_TESTING
+      type: string
+    TestOpsKsSession:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        duration:
+          format: int64
+          type: integer
+        startTime:
+          format: date
+          type: string
+        endTime:
+          format: date
+          type: string
+        organizationId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        machineId:
+          type: string
+        sessionId:
+          type: string
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        ksVersion:
+          type: string
+        lastLicenseGrantTime:
+          format: date
+          type: string
+        lastLicenseExpiredTime:
+          format: date
+          type: string
+        lastLicenseRenewTime:
+          format: date
+          type: string
+        terminationReason:
+          type: string
+        happyEnding:
+          type: boolean
+        user:
+          $ref: '#/components/schemas/TestOpsUser'
+    TestOpsMachine:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: date
+          type: string
+        updatedAt:
+          format: date
+          type: string
+        archived:
+          type: boolean
+        machineKey:
+          type: string
+        organizationId:
+          format: int64
+          type: integer
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        userId:
+          format: int64
+          type: integer
+        user:
+          $ref: '#/components/schemas/TestOpsUser'
+        organization:
+          $ref: '#/components/schemas/TestOpsOrganization'
+    TestOpsOrganization:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        name:
+          type: string
+          nullable: false
+        logo:
+          type: string
+        ownerId:
+          format: int64
+          type: integer
+        owner:
+          $ref: '#/components/schemas/TestOpsUser'
+        accountId:
+          format: int64
+          type: integer
+        createdAtSafe:
+          format: date
+          type: string
+    TestOpsOrganizationFeature:
+      enum:
+      - ENGINE
+      - FLOATING_ENGINE
+      - KSE
+      - PER_USER_KSE
+      - TESTCLOUD_MINUTE
+      - TESTCLOUD_SESSION_WEB
+      - TESTOPS
+      - TESTOPS_BUSINESS
+      - TESTOPS_ENTERPRISE
+      - TESTOPS_PLATFORM
+      - UNLIMITED_ENGINE
+      - UNLIMITED_KSE
+      - VISUAL_TESTING_PRO
+      type: string
+    TestOpsOrganizationFeatureFlag:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        subDomain:
+          type: boolean
+        sso:
+          type: boolean
+        circleCi:
+          type: boolean
+        kobiton:
+          type: boolean
+        testOpsIntegration:
+          type: boolean
+        parallelExecution:
+          type: boolean
+        whitelistIp:
+          type: boolean
+        accessLog:
+          type: boolean
+    TestOpsOrganizationRole:
+      enum:
+      - ADMIN
+      - BILLING_MANAGER
+      - MEMBER
+      - OWNER
+      type: string
+    TestOpsOrganizationTrialRequest:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TrialRequestStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        organizationId:
+          format: int64
+          type: integer
+        userRequestId:
+          format: int64
+          type: integer
+        userRequest:
+          $ref: '#/components/schemas/TestOpsUser'
+    TestOpsOrganizationUser:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        role:
+          $ref: '#/components/schemas/TestOpsOrganizationRole'
+        user:
+          $ref: '#/components/schemas/TestOpsUser'
+        organization:
+          $ref: '#/components/schemas/TestOpsOrganization'
+    TestOpsOrganizationUserFeature:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        organizationUserId:
+          format: int64
+          type: integer
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        user:
+          $ref: '#/components/schemas/TestOpsUser'
+    TestOpsOrganizationUserSso:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        organizationUserId:
+          format: int64
+          type: integer
+        option:
+          $ref: '#/components/schemas/TestOpsSsoOption'
+        status:
+          $ref: '#/components/schemas/TestOpsSsoOptionStatus'
+    TestOpsPaymentMethod:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        organizationId:
+          format: int64
+          type: integer
+        last4:
+          type: string
+        brand:
+          type: string
+        expiration:
+          type: string
+        stripeToken:
+          type: string
+    TestOpsPlanInterval:
+      enum:
+      - MONTH
+      - YEAR
+      type: string
+    TestOpsPlatformConfiguration:
+      type: object
+      properties:
+        MONTH:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsPlatformTier'
+        YEAR:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsPlatformTier'
+        mONTH:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsPlatformTier'
+        yEAR:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestOpsPlatformTier'
+    TestOpsPlatformSubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        quota:
+          format: int64
+          type: integer
+        activeProjects:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsSubscriptionStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        expiryDate:
+          format: date
+          type: string
+        source:
+          $ref: '#/components/schemas/TestOpsSubscriptionSource'
+        recurlySubscription:
+          $ref: '#/components/schemas/RecurlySubscription'
+        accountId:
+          format: int64
+          type: integer
+        tier:
+          $ref: '#/components/schemas/TestOpsPlatformTierType'
+        hasPremierSuccessAddOn:
+          type: boolean
+        billingCycle:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+    TestOpsPlatformTier:
+      type: object
+      properties:
+        testOpsPlatformTier:
+          $ref: '#/components/schemas/TestOpsPlatformTierType'
+        price:
+          format: float
+          type: number
+        executionTestResults:
+          format: int64
+          type: integer
+        activeProjects:
+          format: int64
+          type: integer
+    TestOpsPlatformTierType:
+      enum:
+      - BUSINESS
+      - ENTERPRISE
+      - FREE
+      - PROFESSIONAL
+      type: string
+    TestOpsProject:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        deletedById:
+          format: int64
+          type: integer
+        deletedAt:
+          format: date
+          type: string
+        name:
+          type: string
+        teamId:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsProjectStatus'
+        team:
+          $ref: '#/components/schemas/TestOpsTeam'
+    TestOpsProjectStatus:
+      enum:
+      - ACTIVE
+      - ARCHIVE
+      type: string
+    TestOpsRecentProject:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        projectId:
+          format: int64
+          type: integer
+        project:
+          $ref: '#/components/schemas/TestOpsProject'
+        accessedAt:
+          format: date
+          type: string
+    TestOpsRecurlySubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        subscriptionId:
+          type: string
+        subscriptionUuid:
+          type: string
+        unpaid:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/TestOpsRecurlySubscriptionStatus'
+        stripeCustomerId:
+          format: int64
+          type: integer
+        enterprisePlan:
+          $ref: '#/components/schemas/TestOpsEnterprisePlan'
+    TestOpsRecurlySubscriptionStatus:
+      enum:
+      - ACTIVE
+      - CANCELED
+      - EXPIRED
+      - FUTURE
+      type: string
+    TestOpsRegistration:
+      type: object
+      properties:
+        user:
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+        year:
+          type: string
+        month:
+          type: string
+        day:
+          format: int32
+          type: integer
+    TestOpsSsoOption:
+      enum:
+      - BASIC_AUTH
+      - SSO_AUTH
+      type: string
+    TestOpsSsoOptionStatus:
+      enum:
+      - ACTIVE
+      - DECLINED
+      - PENDING
+      type: string
+    TestOpsSubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        quantity:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsSubscriptionStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        expiryDate:
+          format: date
+          type: string
+        source:
+          $ref: '#/components/schemas/TestOpsSubscriptionSource'
+        organizationId:
+          format: int64
+          type: integer
+        recurlySubscription:
+          $ref: '#/components/schemas/TestOpsRecurlySubscription'
+        accountRecurlySubscriptionId:
+          format: int64
+          type: integer
+        tier:
+          $ref: '#/components/schemas/TestOpsPlatformTierType'
+    TestOpsSubscription1:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        quota:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsSubscriptionStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        expiryDate:
+          format: date
+          type: string
+        source:
+          $ref: '#/components/schemas/TestOpsSubscriptionSource'
+        recurlySubscription:
+          $ref: '#/components/schemas/RecurlySubscription'
+        accountId:
+          format: int64
+          type: integer
+        hasPremierSuccessAddOn:
+          type: boolean
+        billingCycle:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+    TestOpsSubscriptionSource:
+      enum:
+      - RECURLY
+      - TRIAL_REQUEST
+      type: string
+    TestOpsSubscriptionStatus:
+      enum:
+      - ACTIVE
+      - INACTIVE
+      - PENDING
+      type: string
+    TestOpsTeam:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        deletedById:
+          format: int64
+          type: integer
+        deletedAt:
+          format: date
+          type: string
+        organizationId:
+          format: int64
+          type: integer
+        jobQuota:
+          format: int32
+          type: integer
+        originalTeamId:
+          format: int64
+          type: integer
+        ownerId:
+          format: int64
+          type: integer
+        name:
+          type: string
+    TestOpsUser:
+      required:
+      - email
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          nullable: false
+        avatar:
+          type: string
+        trialExpirationDate:
+          format: int64
+          type: integer
+    TestOpsUserInvitation:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        resetPasswordCode:
+          type: string
+        accepted:
+          type: boolean
+        invitationToken:
+          type: string
+        invitedUserId:
+          format: int64
+          type: integer
+        teamId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        user:
+          $ref: '#/components/schemas/TestOpsUser'
+    TestOpsUserSsoInvitation:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        invitationToken:
+          type: string
+        invitedUserId:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsUserSsoInvitationStatus'
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+    TestOpsUserSsoInvitationStatus:
+      enum:
+      - ACCEPTED
+      - DECLINED
+      - DELETED
+      - PENDING
+      type: string
+    TestResultCount:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date
+          type: string
+        archived:
+          type: boolean
+        organizationId:
+          format: int64
+          type: integer
+        subscriptionId:
+          format: int64
+          type: integer
+        subscriptionCreatedAt:
+          format: date
+          type: string
+        subscriptionExpiryDate:
+          format: date
+          type: string
+        subscriptionSource:
+          $ref: '#/components/schemas/SubscriptionSource'
+        usagePeriodStartAt:
+          format: date
+          type: string
+        usagePeriodEndAt:
+          format: date
+          type: string
+        usagePlan:
+          $ref: '#/components/schemas/UsagePlan'
+        usagePlanInterval:
+          $ref: '#/components/schemas/UsageInterval'
+        duration:
+          format: int64
+          type: integer
+        count:
+          format: int64
+          type: integer
+        quota:
+          format: int64
+          type: integer
+        hardLimit:
+          format: int64
+          type: integer
+        usageFactor:
+          format: double
+          type: number
+        usageOverQuota:
+          format: double
+          type: number
+        usageOverHardLimit:
+          format: double
+          type: number
+        canSubmit:
+          type: boolean
+        signature:
+          type: string
+    Token:
+      type: object
+      properties:
+        jwt:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+    TotalTestActivity:
+      type: object
+      properties:
+        testResult:
+          type: number
+        testDuration:
+          type: number
+        date:
+          format: date
+          type: string
+    Track:
+      type: object
+      properties:
+        userId:
+          type: string
+        event:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        context:
+          type: object
+          additionalProperties:
+            type: object
+        integrations:
+          type: object
+          additionalProperties:
+            type: object
+        anonymousId:
+          type: string
+    TrackResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+        invoiceId:
+          type: string
+          xml:
+            name: invoice_id
+        invoiceNumber:
+          format: int32
+          type: integer
+          xml:
+            name: invoice_number
+        subscriptionId:
+          type: string
+          xml:
+            name: subscription_id
+        action:
+          type: string
+        date:
+          format: date
+          type: string
+        amountInCents:
+          format: int32
+          type: integer
+          xml:
+            name: amount_in_cents
+        status:
+          type: string
+        message:
+          type: string
+        reference:
+          type: string
+        source:
+          type: string
+        cvvResult:
+          type: string
+          xml:
+            name: cvv_result
+        avsResult:
+          type: string
+          xml:
+            name: avs_result
+        avsResultStreet:
+          type: string
+          xml:
+            name: avs_result_street
+        avsResultPostal:
+          type: string
+          xml:
+            name: avs_result_postal
+        test:
+          type: boolean
+        voidable:
+          type: boolean
+        refundable:
+          type: boolean
+      xml:
+        name: transaction
+    TrialRequestStatus:
+      enum:
+      - APPROVED
+      - PENDING
+      - REJECTED
+      type: string
+    UUID:
+      format: uuid
+      pattern: "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
+      type: string
+    UsageInterval:
+      enum:
+      - MONTHLY
+      - YEARLY
+      type: string
+    UsagePlan:
+      enum:
+      - BUSINESS
+      - COMMUNITY
+      - ENTERPRISE
+      - PLATFORM
+      type: string
+    User:
+      required:
+      - email
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        email:
+          pattern: \S
+          type: string
+          nullable: false
+        password:
+          type: string
+        roles:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        resetPasswordCode:
+          $ref: '#/components/schemas/UUID'
+        firstName:
+          type: string
+        lastName:
+          type: string
+        newPassword:
+          type: string
+        jobTitle:
+          type: string
+        testingSolutions:
+          type: string
+        avatar:
+          type: string
+        deleteReason:
+          type: string
+        lastLogin:
+          format: date
+          type: string
+    UserInvitation:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        accepted:
+          type: boolean
+        invitationToken:
+          type: string
+        invitedTestOpsUserId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        email:
+          type: string
+        invitedUserId:
+          format: int64
+          type: integer
+        organizationName:
+          type: string
+        organizationDomain:
+          type: string
+        resetPasswordCode:
+          type: string
+        accountName:
+          type: string
+        accountId:
+          format: int64
+          type: integer
+        inviterUserEmail:
+          type: string
+        inviterUserName:
+          type: string
+        organizationLogo:
+          type: string
+    UserSsoInvitation:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        invitationToken:
+          type: string
+        invitedUserId:
+          format: int64
+          type: integer
+        invitedTestOpsUserId:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        userId:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/UserSsoInvitationStatus'
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        organizationName:
+          type: string
+        email:
+          type: string
+    UserSsoInvitationStatus:
+      enum:
+      - ACCEPTED
+      - DECLINED
+      - DELETED
+      - PENDING
+      type: string
+    UserStatus:
+      enum:
+      - INVITED
+      - LEGACY
+      - NEW
+      - VERIFIED
+      type: string
+    VisualTestingFeature:
+      enum:
+      - VISUAL_TESTING_PRO
+      - VISUAL_TESTING_STANDARD
+      type: string
+    VisualTestingSubscription:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        archived:
+          type: boolean
+        quota:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/TestOpsSubscriptionStatus'
+        feature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        expiryDate:
+          format: date
+          type: string
+        source:
+          $ref: '#/components/schemas/TestOpsSubscriptionSource'
+        recurlySubscription:
+          $ref: '#/components/schemas/RecurlySubscription'
+        accountId:
+          format: int64
+          type: integer
+        billingCycle:
+          $ref: '#/components/schemas/TestOpsPlanInterval'
+        hasPremierSuccessAddOn:
+          type: boolean
+    VisualTestingTracking:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        usedQuota:
+          format: int64
+          type: integer
+        usedAt:
+          format: date
+          type: string
+        archived:
+          type: boolean
+    VisualTestingUsage:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        createdAt:
+          format: int64
+          type: integer
+        updatedAt:
+          format: int64
+          type: integer
+        organizationId:
+          format: int64
+          type: integer
+        subscriptionId:
+          format: int64
+          type: integer
+        testOpsFeature:
+          $ref: '#/components/schemas/TestOpsOrganizationFeature'
+        source:
+          $ref: '#/components/schemas/TestOpsSubscriptionSource'
+        visualTestingFeature:
+          $ref: '#/components/schemas/VisualTestingFeature'
+        quota:
+          format: int64
+          type: integer
+        usedQuota:
+          format: int64
+          type: integer
+        remainingQuota:
+          format: int64
+          type: integer
+        sumUsedQuota:
+          format: int64
+          type: integer
+        cycleStart:
+          format: date
+          type: string
+        cycleEnd:
+          format: date
+          type: string
+        archived:
+          type: boolean
+        trackingId:
+          format: int64
+          type: integer
+        expiryDate:
+          format: date
+          type: string
+  securitySchemes:
+    SecurityScheme:
+      type: http
+      description: Authentication
+      scheme: bearer
+      bearerFormat: JWT
